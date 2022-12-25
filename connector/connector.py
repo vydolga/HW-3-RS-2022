@@ -12,4 +12,3 @@ def get_data(link: str) -> pd.DataFrame:
     logging.info('Df is extracted')
 
     return df
- 

@@ -31,20 +31,20 @@ def train_naive_bayes(X_train, y_train):
 
     #train the model
     clf.fit(X_train, y_train)
-    save_model(dir = path_to_model, model = clf)
+    save_model(dir = settings.MODEL.dt_naive, model = clf)
     return clf
 
-def predict(values, path_to_model):
-    clf = load_model(path_to_model)
+def predict_naive(values):
+    clf = load_model(settings.MODEL.dt_naive)
     return clf.predict(values)
 
-df = get_data(settings.DATA.data_set)
-X_train, X_test, y_train, y_test = split_data(df) 
-clf = train_naive_bayes(X_train, y_train)
+# df = get_data(settings.DATA.data_set)
+# X_train, X_test, y_train, y_test = split_data(df) 
+# clf = train_naive_bayes(X_train, y_train)
 
-logging.info(f'Accuracy is {clf.score(X_test, y_test)  } ')
+# logging.info(f'Accuracy is {clf.score(X_test, y_test)  } ')
 
-responce = predict(X_test, path_to_model)
+# responce = predict_naive(X_test)
 
 
-logging.info(f'Prediction is {clf .predict(X_test )  } ')
+# logging.info(f'Prediction is {clf .predict(X_test )  } ')

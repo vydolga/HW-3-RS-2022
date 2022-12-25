@@ -2,4 +2,8 @@
 data_set = "https://raw.githubusercontent.com/5x12/ml-cookbook/master/supplements/data/heart.csv"
 
 [MODEL]
-dt_conf = "model/conf/decision_tree.pkl"
+dt_naive = "model/conf/naive_bayes.pkl"
+dt_random = "model/conf/random_forest.pkl"
+
+[PREDICTION]
+data_predict = [59, 1, 0, 101, 234, 0, 1, 143, 0, 4, 0, 0, 0]

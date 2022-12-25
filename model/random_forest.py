@@ -5,7 +5,6 @@ from sklearn.ensemble import RandomForestClassifier
 import pickle
 from util.util import  save_model, load_model
 from conf.conf import settings
-from conf.conf import path_to_model
 # from conf.config import settings
 
 def split_data(df):
@@ -33,11 +32,11 @@ def train_random_forest(X_train, y_train):
 
     #train the model
     clf.fit(X_train, y_train)
-    save_model(dir = path_to_model, model = clf)
+    save_model(dir = settings.MODEL.dt_random, model = clf)
     return clf
 
-def predict(values, path_to_model):
-    clf = load_model(path_to_model)
+def predict_rf(values):
+    clf = load_model(settings.MODEL.dt_random)
     return clf.predict(values)
 
 df = get_data(settings.DATA.data_set)
@@ -46,7 +45,7 @@ clf = train_random_forest(X_train, y_train)
 
 logging.info(f'Accuracy is {clf.score(X_test, y_test)  } ')
 
-responce = predict(X_test, path_to_model)
+responce = predict_rf(X_test)
 
 
 logging.info(f'Prediction is {clf .predict(X_test )  } ')
